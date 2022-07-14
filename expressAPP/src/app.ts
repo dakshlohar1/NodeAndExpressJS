@@ -1,5 +1,4 @@
 import * as express from "express";
-import * as bodyParser from "body-parser";
 import * as cors from "cors";
 import { addNumRouter } from "./controllers/addNum.controller";
 
@@ -7,11 +6,8 @@ import { addNumRouter } from "./controllers/addNum.controller";
 const app = express();
 app.set("port", process.env.PORT || 3000);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-let corsOptions = {
-  origin: ["*"], // * for all origin
-};
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
